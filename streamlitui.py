@@ -52,8 +52,8 @@ def main():
             st.session_state["input_url"] = ""
             st.session_state["youtubequery"] = YoutubeQuery(st.session_state["OPENAI_API_KEY"])
 
-    st.subheader("Add a url")
-    st.text_input(""Input url", value=st.session_state["url"], key="input_url", disabled=not is_openai_api_key_set(), on_change=ingest_input)
+    st.subheader("Add a URL and Press Enter")
+    st.text_input("Input URL", value=st.session_state["url"], key="input_url", disabled=not is_openai_api_key_set(), on_change=ingest_input)
 
     st.session_state["ingestion_spinner"] = st.empty()
 
@@ -61,6 +61,6 @@ def main():
     st.text_input("Medical Question", key="user_input", disabled=not is_openai_api_key_set(), on_change=process_input)
 
     st.divider()
-
+    
 if __name__ == "__main__":
     main()
